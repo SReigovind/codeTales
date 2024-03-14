@@ -1,0 +1,291 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- Mobile Metas -->
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.3/codemirror.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.3/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.3/mode/clike/clike.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.3/addon/edit/closebrackets.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Compiler</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+        .CodeMirror {
+            height: 225px;
+            margin-bottom: 5px;
+        }
+        .CodeMirror-scroll {
+            max-height: 600px;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #1e1e1e; /* Dark background color */
+            color: #ffffff; /* White text color */
+            display: flex;
+            height: 100vh;
+        }
+
+        #left {
+            width: 40%;
+            padding: 20px;
+            box-sizing: border-box;
+            
+    position: relative; /* Add this line */
+        }
+
+        
+        #navbar {
+    position: absolute; /* Position the navigation bar */
+    bottom: 25px; /* Align it to the bottom of the left div */
+    width: calc(100% - 40px); /* Make it take the full width of the left div minus padding */
+    left: 20px; /* Offset to match padding of left div */
+}
+
+#navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+#navbar ul li {
+    display: inline-block;
+    margin: 0 10px; /* Add some spacing between menu items */
+}
+
+#navbar ul li a {
+    text-decoration: none;
+    color: #ffffff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    background-color: #1d1877;
+}
+
+#navbar ul li a:hover {
+    background-color: #0056b3;
+}
+
+.brand {
+    /* Style for the brand */
+    font-family: Raleway;
+    font-size: 22px;
+    color: #ffffff; /* Adjust color as needed */
+    text-decoration: none !important; /* Remove underline */
+}
+
+
+        #right {
+            width: 60%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        #topright {
+            flex: 0 0 45%;
+            background-color: #333333; /* Dark color for top right frame */
+            padding: 0px 20px;
+            box-sizing: border-box;
+            overflow-y: auto; /* Add scrollbar if content overflows */
+        }
+
+        #bottomright {
+            flex: 1;
+            background-color: #333333; /* Dark color for bottom right frame */
+            padding: 20px;
+            box-sizing: border-box;
+            overflow-y: auto; /* Add scrollbar if content overflows */
+        }
+        #bottomright .output pre {
+    max-width: 100%;
+    overflow-x: auto; /* Enable horizontal scrolling if content overflows */
+    white-space: pre-wrap; /* Wrap long lines */
+}
+
+        .puzzleoutput {
+            background-color: #1e1e1e; /* Dark color for output */
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+            color: #ffffff; /* White text color */
+        }
+
+        .output {
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+            color: #000; /* White text color */
+        }
+
+        textarea {
+            width: 100%;
+            height: 100%;
+            padding: 10px;
+            margin-bottom: 5px; /* Space after the textarea */
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            resize: vertical;
+            box-sizing: border-box; /* Include padding and border in element's total width and height */
+            background-color: #252525; /* Dark color for textarea */
+            color: #ffffff; /* White text color */
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 5px; /* Space before the submit button */
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Styling for decorative linebreak image */
+        .linebreak {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            background-color: #333333; /* Match background color of other right divs */
+        }
+
+        .linebreak img {
+            width: 35%; /* Adjust the width of the linebreak image */
+            height: 25px;
+        }
+        h2 {
+    margin-top: 0.4em; /* Adjust as needed */
+    margin-bottom: 0.4em; /* Adjust as needed */
+}
+#user_input {
+        height: 3em; /* Initial height for a single line */
+        resize: none; /* Prevent resizing */
+    }
+    </style>
+</head>
+<body>
+    <div id="left">
+        {% if puzzleerror %}
+        <div class="output" style="background-color: #ffcccc">
+            <h2>Error</h2>
+            <pre>{{ puzzleerror }}</pre>
+        </div>
+        {% elif puzzle %}
+        <div class="puzzleoutput">
+            <h2>Puzzle</h2>
+            <p>{{ puzzle|linebreaks }}<br><br>{{ pq|linebreaks }}
+            {% if terminalval %}
+            <br><br>{{ terminalval }}
+            {% endif %}
+            </p>
+        </div>
+        {% endif %}
+        <nav id="navbar">
+            <ul>
+                <a href="/homepage"><span class="brand">codeTales</span></a>
+                <li><a href="/homepage">Home</a></li>
+                <li><a href="/{{ level }}">Level</a></li>
+                <li><a href="/bookpage/{{url}}">Back to Story</a></li>
+        </nav>
+    </div>
+    <div id="right">
+        <div id="topright">
+            <h2>Code Editor</h2>
+            <form method="post" action="/code/{{ language }},{{ puzzleid }}">
+                {% csrf_token %}
+                <input type="hidden" name="language" value="{{ language }}">
+                <input type="hidden" name="pid" value="{{ puzzleid }}">
+                <textarea name="code" id="code" placeholder="Enter your code here...">{{ code }}</textarea>
+                {% if needip %}
+                <textarea name="user_input" id="user_input" placeholder="Enter user input here..."></textarea>
+                {% endif %}
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+        <div class="linebreak">
+            <img src="{% static 'images/lbimg.png' %}" alt="Linebreak Image">
+        </div>
+        <div id="bottomright">
+            {% if compileerror or feedbackerror %}
+            <div class="output" style="background-color: #ffcccc">
+                <h2>Error</h2>
+                {% if compileerror %}
+                <pre>{{ compileerror }}</pre>
+                <h2>Feedback</h2>
+                <pre>{{ feedback }}</pre>
+                {% endif %}
+                {% if feedbackerror %}
+                    <pre>{{ feedbackerror }}</pre>
+                {% endif %}
+            </div>
+            {% elif output %}
+             {% if '/home/application.py' in output or '/usr/sbin/ld:' in output or 'main.c:' in output or 'Uh-oh!' in feedback %}
+            <div class="output" style="background-color: #ffcccc">
+                <h2>Error</h2>
+            {% else %}
+            <div class="output" style="background-color: #ccffcc">
+                <h2>Output</h2>
+            {% endif %}
+                <pre>{{ output }}</pre>
+                <h2>Feedback</h2>
+                <pre>{{ feedback }}</pre>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+    <script>
+        var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
+            lineNumbers: true,
+            mode: "text/x-c++src",
+            autoCloseBrackets: true,
+            undoDepth: 50,
+            extraKeys: {
+                "Ctrl-Z": "undo",
+                "Cmd-Z": "undo",
+                "Ctrl-Y": "redo",
+                "Cmd-Y": "redo",
+                "Tab": function(cm) {
+                    if (cm.somethingSelected()) {
+                        cm.indentSelection("add");
+                    } else {
+                        cm.execCommand("insertSoftTab");
+                    }
+                },
+                "Shift-Tab": function(cm) {
+                    cm.indentSelection("subtract");
+                }
+            },
+            indentUnit: 4,
+            tabSize: 4,
+            indentWithTabs: false
+        });
+    </script>
+    <script>
+        // Check if the puzzle requires user inputs
+        var needIP = {{ needip|lower }};
+        
+        // Get the #topright div element
+        var toprightDiv = document.getElementById("topright");
+        
+        // Update the flex value based on needIP
+        if (needIP) {
+            toprightDiv.style.flex = "0 0 55%";
+        }
+    </script>    
+</body>
+</html>

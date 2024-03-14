@@ -1,0 +1,369 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- Basic -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- Mobile Metas -->
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <link
+      rel="icon"
+      href="{% static 'images/fevicon.png' %}"
+      type="image/gif"
+    />
+    <!-- Site Metas -->
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+
+    <title>codeTales</title>
+
+    <!-- bootstrap core css -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'css/bootstrap.css' %}"
+    />
+
+    <!-- fonts style -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap"
+      rel="stylesheet"
+    />
+    <!-- font awesome style -->
+    <link href="{% static 'css/font-awesome.min.css' %}" rel="stylesheet" />
+
+    <!-- Custom styles for this template -->
+    <link href="{% static 'css/index.css' %}" rel="stylesheet" />
+    <!-- responsive style -->
+    <link href="{% static 'css/index-responsive.css' %}" rel="stylesheet" />
+  </head>
+
+  <body>
+    <div class="hero_area">
+      <!-- header section strats -->
+      <header class="header_section">
+        <div class="container-fluid">
+          <nav class="navbar navbar-expand-lg custom_nav-container">
+            <a class="navbar-brand" href="/index">
+              <span>codeTales</span>
+            </a>
+
+            <button
+              class="navbar-toggler"
+              type="button"
+              data-toggle="collapse"
+              data-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span class=""> </span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                  <a class="nav-link" href="/about">About</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/course">Courses</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/reglog">Sign Up | Sign In</a>
+                </li>
+              </ul>
+            </div>
+          </nav>
+        </div>
+      </header>
+      <!-- end header section -->
+      <!-- slider section -->
+      <section class="slider_section">
+        <div id="customCarousel1" class="carousel slide" data-ride="carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <div class="container">
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="detail-box">
+                      <h1>
+                        codeTales <br />
+                        Where Coding Meets Storytelling
+                      </h1>
+                      <p>
+                        Welcome to codeTales, your portal to the magical fusion
+                        of coding and storytelling, where learning becomes a
+                        thrilling adventure. Immerse yourself in a world where
+                        every line of code weaves a captivating tale, unlocking
+                        the mysteries of programming. Join us today and embark
+                        on your extraordinary coding journey filled with
+                        discovery, challenge, and creativity.
+                      </p>
+                      <div class="btn-box">
+                        <a href="/about" class="btn-1"> Read More </a>
+                        <a href="/reglog" class="btn-2"> Start Learning </a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="row">
+                      <div class="col-lg-10 mx-auto">
+                        <div class="img-box">
+                          <img
+                            src="{% static 'images/index-slider-1.png' %}"
+                            alt=""
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="container">
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="detail-box">
+                      <h1>
+                        The Python Chronicles<br />
+                        Begin an Epic Python Journey
+                      </h1>
+                      <p>
+                        Set forth on an extraordinary journey with 'The Python
+                        Chronicles' at codeTales, an adventure that transforms
+                        Python into a captivating narrative. Explore Python in a
+                        storytelling format, where code becomes the essence of
+                        enchanting tales. Join us and let Python be your guide
+                        to crafting your own digital stories. Start your journey
+                        with 'The Python Chronicles' at codeTales!
+                      </p>
+                      <div class="btn-box">
+                        <a href="/course" class="btn-1"> Read More </a>
+                        <a href="/reglog" class="btn-2"> Start Learning </a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="row">
+                      <div class="col-lg-10 mx-auto">
+                        <div class="img-box">
+                          <img
+                            style="height: 80%; width: 80%"
+                            src="{% static 'images/index-python.png' %}"
+                            alt=""
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="container">
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="detail-box">
+                      <h1>
+                        The C Cipher<br />
+                        Crack the Code in C Programming
+                      </h1>
+                      <p>
+                        Step into the world of 'The C Cipher' at codeTales, a
+                        thrilling detective adventure in the realm of C
+                        programming. In this captivating narrative, you'll
+                        decipher clues and uncover coding mysteries. Join us and
+                        let 'C' be your guide through the twists and turns of
+                        code. Start your journey with 'The C Cipher' at
+                        codeTales!
+                      </p>
+                      <div class="btn-box">
+                        <a href="/course" class="btn-1"> Read More </a>
+                        <a href="/reglog" class="btn-2"> Start Learning </a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="row">
+                      <div class="col-lg-10 mx-auto">
+                        <div class="img-box">
+                          <img
+                            style="height: 80%; width: 80%"
+                            src="{% static 'images/index-c.png' %}"
+                            alt=""
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="carousel_btn-box">
+            <a
+              class="carousel-control-prev"
+              href="#customCarousel1"
+              role="button"
+              data-slide="prev"
+            >
+              <i class="fa fa-angle-left" aria-hidden="true"></i>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a
+              class="carousel-control-next"
+              href="#customCarousel1"
+              role="button"
+              data-slide="next"
+            >
+              <i class="fa fa-angle-right" aria-hidden="true"></i>
+              <span class="sr-only">Next</span>
+            </a>
+          </div>
+        </div>
+      </section>
+      <!-- end slider section -->
+    </div>
+    <br /><br />
+
+    <!-- about section -->
+    <div>
+      <section class="about_section layout_padding-bottom">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="detail-box">
+                <div class="heading_container">
+                  <h2>About Us</h2>
+                </div>
+                <p>
+                  Welcome to codeTales! We're your gateway to a unique and
+                  captivating world where coding and storytelling intertwine. At
+                  codeTales, we're passionate about making coding education
+                  engaging and enjoyable. Our platform offers interactive coding
+                  challenges, enchanting narratives, and a supportive community.
+                  Join us to embark on a coding journey like never before.
+                  Whether you're a beginner taking your first steps into the
+                  coding realm or an experienced developer seeking new
+                  challenges, codeTales has something magical for everyone. Dive
+                  into our enchanting stories, solve interactive coding puzzles,
+                  and connect with a community of learners and experts.
+                  Together, let's rewrite the narrative of coding education,
+                  making it an adventure filled with excitement and growth.
+                </p>
+                <a href="/about"> Read More </a>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="img-box">
+                <img
+                  style="height: 75%; width: 75%; margin-left: 110px"
+                  src="{% static 'images/about-img.png' %}"
+                  alt=""
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <!-- end about section -->
+    <!-- info section -->
+    <!-- <div>
+  <section class="info_section layout_padding2">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3">
+          <div class="info_contact">
+            <h4>
+              Address
+            </h4>
+            <div class="contact_link_box">
+              <a href="">
+                <i class="fa fa-map-marker" aria-hidden="true"></i>
+                <span>
+                  Location
+                </span>
+              </a>
+              <a href="">
+                <i class="fa fa-phone" aria-hidden="true"></i>
+                <span>
+                  Call +01 1234567890
+                </span>
+              </a>
+              <a href="">
+                <i class="fa fa-envelope" aria-hidden="true"></i>
+                <span>
+                  demo@gmail.com
+                </span>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="info_link_box">
+            <h4>
+              Links
+            </h4>
+            <div class="info_links">
+              <a class="" href="/about">
+                <img src="{% static 'images/nav-bullet.png' %}" alt="">
+                About
+              </a>
+              <a class="" href="/service">
+                <img src="{% static 'images/nav-bullet.png' %}" alt="">
+                Courses
+              </a>
+              <a class="" href="/reglog">
+                <img src="{% static 'images/nav-bullet.png' %}" alt="">
+                Sign Up | Sign In
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="info_detail">
+            <h4>
+              Info
+            </h4>
+            <p>
+              necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div> -->
+    <!-- end info section -->
+
+    <!-- footer section -->
+    <footer class="footer_section">
+      <div class="container">
+        <div class="footdiv"></div>
+        <p>
+          &copy; <span id="displayYear"></span> codeTales - Learning Through
+          Stories
+        </p>
+      </div>
+    </footer>
+    <!-- footer section -->
+
+    <!-- jQery -->
+    <script src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
+    <!-- bootstrap js -->
+    <script src="{% static 'js/bootstrap.js' %}"></script>
+    <!-- custom js -->
+    <script src="{% static 'js/custom.js' %}"></script>
+  </body>
+</html>

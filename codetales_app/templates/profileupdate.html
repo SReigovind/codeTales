@@ -1,0 +1,163 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}" />
+
+    <!-- fonts style -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap" rel="stylesheet" />
+
+    <!-- font awesome style -->
+    <link href="{% static 'css/font-awesome.min.css' %}" rel="stylesheet" />
+
+    <!-- Custom styles for this template -->
+    <link href="{% static 'css/homepage.css' %}" rel="stylesheet" />
+    <!-- responsive style -->
+    <link href="{% static 'css/homepage-responsive.css' %}" rel="stylesheet" />
+
+    <title>Profile Update</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .form-container {
+            background-color: #e8e8e8;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        input[type="date"],
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            background-color: #fff;
+        }
+
+        input[type="submit"],
+        input[type="button"] {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover,
+        input[type="button"]:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+<div class="hero_area">
+    <!-- header section strats -->
+    <header class="header_section">
+        <div class="container-fluid">
+            <nav class="navbar navbar-expand-lg custom_nav-container ">
+                <a class="navbar-brand" href="/homepage">
+                    <span>codeTales</span>
+                </a>
+
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class=""> </span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav  ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/courses">Courses</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/feedback">Feedback</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/index">Logout</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <div>
+        <section class="about_section layout_padding-bottom">
+            <div class="container">
+                <div class="form-container">
+                    <h1>Update Profile</h1>
+                    <form name="profileupdate" action="/profile/" method="POST">
+                        {% csrf_token %}
+                        <input type="text" name="id" value="{{ id }}" readonly hidden>
+                        <div class="form-group">
+                            <label for="fullName">Name</label>
+                            <input type="text" id="fullName" name="username" value="{{username}}" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="dob">DOB</label>
+                            <input type="date" id="dob" name="dob" value="{{ dob|date:'Y-m-d' }}">
+                        </div>
+                        <div class="form-group">
+                            <label for="gender">Gender</label>
+                            <select id="gender" name="gender">
+                              <option value="" selected disabled>Pick your gender</option>
+                                <option value="M" {% if gender == 'M' %} selected {% endif %}>Male</option>
+                                <option value="F" {% if gender == 'F' %} selected {% endif %}>Female</option>
+                                <option value="O" {% if gender == 'O' %} selected {% endif %}>Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="bio">Bio</label>
+                            <textarea id="bio" name="bio" rows="4">{{bio}}</textarea>
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" name="submitUpdate" value="Update">
+                            <input type="button" name="cancelUpdate" value="Cancel" onclick="window.history.back();">
+                        </div>
+                    </form>
+                    {% if error_message %}
+                        <p style="text-align: center;">{{error_message}}</p>
+                    {% endif %}
+                </div>
+            </div>
+        </section>
+    </div>
+    <footer class="footer_section">
+        <div class="container">
+            <div class="footdiv"></div>
+            <p>
+                &copy; <span id="displayYear"></span> codeTales
+            </p>
+        </div>
+    </footer>
+</body>
+</html>

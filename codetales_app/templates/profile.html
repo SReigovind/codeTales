@@ -1,0 +1,166 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}" />
+    <!-- fonts style -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap" rel="stylesheet" />
+    <!-- font awesome style -->
+    <link href="{% static 'css/font-awesome.min.css' %}" rel="stylesheet" />
+    <!-- Custom styles for this template -->
+    <link href="{% static 'css/homepage.css' %}" rel="stylesheet" />
+    <!-- responsive style -->
+    <link href="{% static 'css/homepage-responsive.css' %}" rel="stylesheet" />
+    <title>Profile</title>
+    <style>
+      body {
+          font-family: 'Roboto', sans-serif;
+          background-color: #f9f9f9;
+          margin: 0;
+          padding: 0;
+      }
+  
+      .container {
+          width: 80%;
+          margin: 0 auto;
+          padding: 20px;
+      }
+  
+      .profile-card {
+          max-width: 600px;
+          margin: 0 auto;
+          padding: 20px;
+          background-color: #e8e8e8;
+          border-radius: 8px;
+          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+  
+      .profile-field {
+          margin-bottom: 20px;
+          display: flex;
+          flex-direction: column;
+          overflow: hidden;
+      }
+  
+      .profile-label {
+          font-weight: 500;
+          margin-bottom: 5px;
+          color: #333;
+          text-align: left;
+      }
+  
+      .profile-value {
+          padding: 10px;
+          text-align: center;
+          color: #333;
+          border: 2px solid #333;
+          border-radius: 8px;
+          height: 50px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+      }
+      
+  
+      .update-link {
+          display: inline-block;
+          text-align: center;
+          margin-top: 20px;
+          text-decoration: none;
+          color: #fff;
+          background-color: #007bff;
+          padding: 10px 20px;
+          border-radius: 4px;
+          transition: background-color 0.3s ease;
+      }
+  
+      .update-link:hover {
+          background-color: #0056b3;
+      }
+  </style>
+  
+  
+    
+</head>
+<body>
+    <div class="hero_area">
+        <!-- header section starts -->
+        <header class="header_section">
+            <div class="container-fluid">
+                <nav class="navbar navbar-expand-lg custom_nav-container ">
+                    <a class="navbar-brand" href="/homepage">
+                        <span>codeTales</span>
+                    </a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class=""> </span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav ml-auto">
+                            <li class="nav-item">
+                                <a class="nav-link" href="/courses">Courses</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/feedback">Feedback</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/index">Logout</a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </header>
+        <div>
+            <section class="about_section layout_padding-bottom">
+                <div class="container">
+                    <div class="profile-card">
+                        <div class="profile-field">
+                            <label class="profile-label" for="username">Username</label>
+                            <span class="profile-value" id="username">{{ username }}</span>
+                        </div>
+                        <div class="profile-field">
+                            <label class="profile-label" for="dob">Date of Birth</label>
+                            <span class="profile-value" id="dob">{{ dob }}</span>
+                        </div>
+                        <div class="profile-field">
+                            <label class="profile-label" for="gender">Gender</label>
+                            <span class="profile-value" id="gender">{{ gender }}</span>
+                        </div>
+                        <div class="profile-field">
+                            <label class="profile-label" for="bio">Bio</label>
+                            <span class="profile-value" id="bio">{{ bio|linebreaks }}</span>
+                        </div>
+                        <a class="update-link" href="/profileupdate">Update Profile</a>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <footer class="footer_section">
+            <div class="container">
+                <div class="footdiv"></div>
+                <p>
+                    &copy; <span id="displayYear"></span> codeTales
+                </p>
+            </div>
+        </footer>
+    </div>
+    <script>
+      // Function to adjust the height of the bio element based on content
+      function adjustBioHeight() {
+          var bioElement = document.getElementById('bio');
+          var lineHeight = parseInt(window.getComputedStyle(bioElement).lineHeight, 10);
+          var bioContent = bioElement.innerText;
+          var numLines = bioContent.split('\n').length;
+          var newHeight = lineHeight * numLines;
+          bioElement.style.height = newHeight+25 + 'px';
+          bioElement.style.paddingTop = '25px';
+      }
+
+      // Call the function when the page loads
+      window.onload = function() {
+          adjustBioHeight();
+      };
+  </script>
+</body>
+</html>

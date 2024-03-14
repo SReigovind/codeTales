@@ -1,0 +1,151 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <link rel="icon" href="{% static 'images/fevicon.png' %}" type="image/gif" />
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+
+  <title>About</title>
+
+
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}" />
+
+  <!-- fonts style -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link
+      href="https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap"
+      rel="stylesheet"
+    />
+
+  <!-- font awesome style -->
+  <link href="{% static 'css/font-awesome.min.css' %}" rel="stylesheet" />
+
+  <!-- Custom styles for this template -->
+  <link href="{% static 'css/about.css' %}" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="{% static 'css/about-responsive.css' %}" rel="stylesheet" />
+
+</head>
+
+<body class="sub_page">
+
+  <div class="hero_area">
+    <!-- header section strats -->
+    <header class="header_section">
+      <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg custom_nav-container ">
+          <a class="navbar-brand" href="/index">
+            <span>codeTales</span>
+          </a>
+
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class=""> </span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav  ml-auto">
+              <li class="nav-item ">
+                <a class="nav-link" href="/index">Home <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/course">Courses</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/reglog">Sign Up | Sign In</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <!-- end header section -->
+  </div>
+
+  <!-- about section -->
+
+  <section class="about_section layout_padding">
+    <div class="container  ">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="detail-box">
+            <div class="heading_container">
+              <h2>
+                About Us
+              </h2>
+            </div>
+            <p>
+              <em>codeTales</em> is a labor of love, a project born from our unwavering belief that coding education can be both engaging and transformative. We understand the challenges that learners face on their coding journey, and we're here to rewrite that narrative.
+          </p>
+  
+          <p>
+              Our platform brings together the magic of storytelling and the precision of coding. We believe in the power of narrative to make learning more relatable, memorable, and exciting. With codeTales, you're not just learning to code; you're diving into a world where each line of code tells a unique story.
+          </p>
+          
+          <h3>What We Offer:</h3>
+          <ul>
+              <li>
+                  <strong>Engaging Coding Stories:</strong> Our interactive coding stories allow you to learn while immersing yourself in captivating narratives. You'll solve real-world challenges, and every code snippet becomes a chapter in your coding adventure.
+              </li>
+              <li>
+                  <strong>Code Challenges:</strong> We offer a range of coding challenges, from beginner to advanced levels. Sharpen your skills, earn badges, and achieve coding mastery.
+              </li>
+              <li>
+                  <strong>User-Friendly Code Editor:</strong> Our code editor supports both Python and C programming languages. Write, run, and test your code effortlessly.
+              </li>
+              <li>
+                  <strong>Code Analysis:</strong> Our machine learning-powered code analysis provides you with valuable feedback, helping you identify areas for improvement and become a more proficient coder.
+              </li>
+          </ul>
+  
+          <p>
+              <strong>Join Us Today:</strong><br>
+              At codeTales, we're committed to making coding accessible, enjoyable, and rewarding. We invite you to embark on this unique learning journey with us. Whether you're a beginner or an experienced programmer, there's a story waiting for you. Come, explore the world of code and stories, and discover the magic of codeTales.
+          </p>
+          </div>
+        </div>
+        <div class="col-md-6 ">
+          <div class="img-box">
+            <img style="height:95%;width: 95%;margin-left: 100px" src="{% static 'images/about-img.png' %}" alt="">
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- end about section -->
+
+  
+  <!-- footer section -->
+  <footer class="footer_section">
+    <div class="container">
+      <div class="footdiv"></div>
+      <p>
+        &copy; <span id="displayYear"></span> codeTales - Learning Through
+        Stories
+      </p>
+    </div>
+  </footer>
+  <!-- footer section -->
+
+  <!-- jQery -->
+  <script src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
+  <!-- bootstrap js -->
+  <script src="{% static 'js/bootstrap.js' %}"></script>
+  <!-- custom js -->
+  <script src="{% static 'js/custom.js' %}"></script>
+
+
+</body>
+
+</html>

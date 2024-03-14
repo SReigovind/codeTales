@@ -1,0 +1,70 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'css/bookpage.css' %}"
+    />
+    <title>Bookpage</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <div class="vertical-navbar" id="navbar123">
+      <a href="/homepage/" class="navbar-link">Home</a>
+      <a href="/{{corp}}level/" class="navbar-link">Levels</a>
+      {% if hasPuzzle %}
+      <a href="/code/{{urllang}},{{pid}}" class="navbar-link">Puzzle</a>
+      {% endif %}
+      <!-- Add more links as needed -->
+  </div>
+    <div id="wrapper">
+      <div id="container">
+        <section class="open-book">
+          <header>
+            <h1>{{story}}</h1>
+            <h6 style="text-transform: none !important;">codeTales</h6>
+          </header>
+          <article>
+            {% if title %}
+            <h3 class="chapter-title">{{title}}</h3>
+            <p>{{data|linebreaksbr}}</p>
+            {% else %}
+            <p>{{data|linebreaksbr}}</p>
+            {% endif %}
+          </article>
+          <footer>
+            <ol id="page-numbers">
+              <li>
+                <a href="/bookpage/{{corp}},{{level}},{{prev}}"
+                  ><div class="custom-angle left"></div
+                ></a>&nbsp;{{p1}}
+              </li>
+              <li>
+                {{p2}}&nbsp;<a href="/bookpage/{{corp}},{{level}},{{next}}"
+                  ><div class="custom-angle right"></div
+                ></a>
+              </li>
+            </ol>
+          </footer>
+        </section>
+      </div>
+    </div>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+    var navbar = document.getElementById('navbar123');
+    if (navbar) {
+        var numLinks = navbar.querySelectorAll('a').length;
+        navbar.style.height = ((numLinks * 50)+50) + 'px'; // Adjust 50px to your desired height per link
+    }
+});
+    </script>
+  </body>
+</html>

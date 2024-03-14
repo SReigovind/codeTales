@@ -1,0 +1,186 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- Basic -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- Mobile Metas -->
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <!-- Site Metas -->
+    <link
+      rel="icon"
+      href="{% static 'images/fevicon.png' %}"
+      type="image/gif"
+    />
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+
+    <title>Courses</title>
+
+    <!-- bootstrap core css -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'css/bootstrap.css' %}"
+    />
+
+    <!-- fonts style -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- font awesome style -->
+    <link href="{% static 'css/font-awesome.min.css' %}" rel="stylesheet" />
+
+    <!-- Custom styles for this template -->
+    <link href="{% static 'css/course.css' %}" rel="stylesheet" />
+    <!-- responsive style -->
+    <link href="{% static 'css/course-responsive.css' %}" rel="stylesheet" />
+  </head>
+
+  <body class="sub_page">
+    <div class="hero_area">
+      <!-- header section strats -->
+      <header class="header_section">
+        <div class="container-fluid">
+          <nav class="navbar navbar-expand-lg custom_nav-container">
+            <a class="navbar-brand" href="/index">
+              <span>codeTales</span>
+            </a>
+
+            <button
+              class="navbar-toggler"
+              type="button"
+              data-toggle="collapse"
+              data-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span class=""> </span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                  <a class="nav-link" href="/index">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/about"> About</a>
+                </li>
+                <li class="nav-item active">
+                  <a class="nav-link" href="/reglog">Sign Up | Sign In</a>
+                </li>
+              </ul>
+            </div>
+          </nav>
+        </div>
+      </header>
+      <!-- end header section -->
+    </div>
+    <br />
+    <!-- about section -->
+    <div>
+      <section class="about_section layout_padding-bottom">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="detail-box">
+                <div class="heading_container">
+                  <h2>The Python Chronicles</h2>
+                </div>
+                <p>
+                  The Python Chronicles: Embark on a captivating journey into
+                  the world of coding with "Thee Python Chronicles." This course
+                  is not just about learning Python; it's an immersive
+                  experience where each line of code tells a unique story. Dive
+                  into interactive coding stories, solve real-world challenges,
+                  and unravel the mysteries of Python programming. Whether
+                  you're a beginner or an experienced coder, "The Python
+                  Chronicles" offers a narrative-driven approach to mastering
+                  Python, making the learning process engaging, memorable, and
+                  fun.
+                </p>
+                <a href="/reglog"> Start Learning </a>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="img-box">
+                <img
+                style="height: 295px; width: 275px; margin-left: 180px;border-radius: 10px;"
+                  src="{% static 'images/pythonCard.png' %}"
+                  alt=""
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="about_section layout_padding-bottom">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="detail-box">
+                <div class="heading_container">
+                  <h2>The C Cipher</h2>
+                </div>
+                <p>
+                  Unlock the secrets of the coding world with "The C Cipher," a
+                  detective-themed course designed to transform your C
+                  programming skills. Delve into the art of problem-solving as
+                  you navigate through detective-inspired coding challenges.
+                  Each coding puzzle is a piece of the larger C Cipher mystery
+                  waiting to be unraveled. Whether you're new to programming or
+                  looking to enhance your C expertise, this course provides an
+                  exciting and intriguing way to learn and master the
+                  fundamentals of C programming. Get ready to crack the code and
+                  become a C Cipher detective!
+                </p>
+                <a href="/reglog"> Start Learning </a>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="img-box">
+                <img
+                  style="height: 295px; width: 275px; margin-left: 180px;border-radius: 10px;"
+                  src="{% static 'images/cCard.png' %}"
+                  alt=""
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <!-- end about section -->
+
+    <!-- footer section -->
+    <footer class="footer_section">
+      <div class="container">
+        <div class="footdiv"></div>
+        <p>
+          &copy; <span id="displayYear"></span> codeTales - Learning Through
+          Stories
+        </p>
+      </div>
+    </footer>
+    <!-- footer section -->
+
+    <!-- jQery -->
+    <script src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
+    <!-- bootstrap js -->
+    <script src="{% static 'js/bootstrap.js' %}"></script>
+    <!-- custom js -->
+    <script src="{% static 'js/custom.js' %}"></script>
+  </body>
+</html>

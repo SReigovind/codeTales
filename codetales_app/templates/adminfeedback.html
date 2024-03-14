@@ -1,0 +1,123 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}" />
+
+    <!-- fonts style -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link
+    href="https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap"
+    rel="stylesheet"
+  />
+    <!-- font awesome style -->
+    <link href="{% static 'css/font-awesome.min.css' %}" rel="stylesheet" />
+  
+    <!-- Custom styles for this template -->
+    <link href="{% static 'css/homepage.css' %}" rel="stylesheet" />
+    <!-- responsive style -->
+    <link href="{% static 'css/homepage-responsive.css' %}" rel="stylesheet" />
+    <title>Profile</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        th, td {
+            padding: 15px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #333;
+            color: #fff;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        h1 {
+            text-align: center;
+            margin: 20px 0;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="hero_area">
+        <!-- header section strats -->
+        <header class="header_section">
+          <div class="container-fluid">
+            <nav class="navbar navbar-expand-lg custom_nav-container ">
+              <a class="navbar-brand" href="/homepage">
+                <span>codeTales</span>
+              </a>
+    
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class=""> </span>
+              </button>
+    
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav  ml-auto">
+                  <li class="nav-item">
+                    <a class="nav-link" href="/adminhomepage">Dashboard</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/adminprofile">View Users</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/index">Logout</a>
+                  </li>
+                </ul>
+              </div>
+            </nav>
+          </div>
+        </header>
+        <div>
+            <section class="about_section layout_padding-bottom">
+    <div class="container">
+        <h1>Feedbacks</h1>
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Email</th>
+                <th>Feedback</th>
+            </tr>
+            {% for i in fb %}
+            <tr>
+                <td>{{i.id}}</td>
+                <td>{{i.Name}}</td>
+                <td>{{i.Message}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</section></div>
+<footer class="footer_section">
+    <div class="container">
+      <div class="footdiv"></div>
+      <p>
+        &copy; <span id="displayYear"></span> codeTales
+      </p>
+    </div>
+  </footer>
+</body>
+</html>
